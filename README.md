@@ -9,14 +9,20 @@ Installation
 
 2) Install v-rep (http://www.v-rep.eu/) into i.e. /opt/v-rep
 
+3) clone the repository into your catkin workspace
 
-3) clone the repository into your ros workspace
+4) Copy vrep_common and vrep_plugin ros packages to your catkin workspace
 
-4) compile
+    $ cp -r /opt/vrep/programming/ros_packages/vrep_plugin ~/catkin_ws/src/
+    $ cp -r /opt/vrep/programming/ros_packages/vrep_common ~/catkin_ws/src/
 
-$ rosmake
+5) compile
 
-5) copy the compiled library libv_repExtyouBot.so into your /opt/v-rep directory
+    $ cd ~/catkin_ws && catkin_make
+
+5) copy the compiled libraries libv_repExtyouBot.so and libv_repExtRos.so into your /opt/v-rep directory
+
+    $ sudo cp ~/catkin_ws/devel/libv_repExt* /opt/v-rep
 
 
 Usage
@@ -24,15 +30,15 @@ Usage
 
 1) Start ros
 
-$ roscore
+    $ roscore
 
 2) load v-rep bringup launchfile
 
-$ roslaunch vrep_youbot_plugin vrep_youbot.launch 
+    $ roslaunch vrep_youbot_plugin vrep_youbot.launch 
 
 3) start v-rep
 
-$ /opt/v-rep/v-rep.sh
+    $ /opt/v-rep/v-rep.sh
 
 4) Load the scene file in v-rep (.../vrep_youbot_plugin/scenes/...) 
 
